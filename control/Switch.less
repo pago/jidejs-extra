@@ -1,0 +1,68 @@
+.jide-extra-switch {
+	.background(@base, @border, @highlight, @checkmark) {
+		background: @base;
+		border: 1px solid @border;
+		.box-shadow(@border 0px 0px 0px 0px inset);
+
+		&::x-checkmark, & > .x-checkmark {
+			background: @checkmark;
+			color: @highlight;
+		}
+
+		&.is-checked {
+			background: @highlight;
+			border-color: @highlight;
+			.box-shadow(@highlight 0px 0px 0px 16px inset);
+		}
+	}
+
+	.jide-extra-switch > .background(@inverse, @silver, @lightgray, @inverse);
+
+	border-radius: 20px;
+	cursor: pointer;
+	display: inline-block;
+	height: 32px;
+	position: relative;
+	vertical-align: middle;
+	width: 52px;
+	.transition("border 0.4s, box-shadow 0.4s, background-color 1.2s");
+
+	&::x-checkmark, & > .x-checkmark {
+		.box-sizing(border-box);
+		text-align: center;
+		padding: 7px 0;
+		border-radius: 100%;
+		.box-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+		height: 30px;
+		width: 30px;
+		position: absolute;
+		top: 0;
+		left: 0px;
+		.transition(left 0.2s);
+	}
+
+	&.is-checked {
+		&::x-checkmark, & > .x-checkmark {
+			left: 20px;
+		}
+	}
+
+	&.primary {
+		.jide-extra-switch > .background(@inverse, @silver, @firm, @inverse);
+	}
+	&.info {
+		.jide-extra-switch > .background(@inverse, @silver, @info, @inverse);
+	}
+	&.danger {
+		.jide-extra-switch > .background(@inverse, @silver, @danger, @inverse);
+	}
+	&.success {
+		.jide-extra-switch > .background(@inverse, @silver, @success, @inverse);
+	}
+	&.warning {
+		.jide-extra-switch > .background(@inverse, @silver, @warning, @inverse);
+	}
+	&.inverse {
+		.jide-extra-switch > .background(@inverse, @silver, @base, @inverse);
+	}
+}

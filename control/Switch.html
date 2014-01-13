@@ -1,0 +1,12 @@
+<template bind="
+	css: {
+		'is-checked': component.checked
+	},
+	on: {
+		click: toggleCheckedState.bind($item)
+	}
+">
+	<small pseudo="x-checkmark" bind="
+		text: component.checked ? component.checkedText : component.uncheckedText
+	"></small>
+</template>
