@@ -15,8 +15,14 @@ define([
 		this.classList.add('jide-extra-switch');
 	}
 	Class(Switch).extends(Control).def({
+		checked: false,
 		checkedText: null,
-		uncheckedText: null
+		uncheckedText: null,
+
+		dispose: function() {
+			installer.dispose(this);
+			Control.prototype.dispose.call(this);
+		}
 	});
 	var installer = ObservableProperty.install(Switch, 'checked', 'checkedText', 'uncheckedText');
 
