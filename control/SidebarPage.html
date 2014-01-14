@@ -1,0 +1,36 @@
+<template>
+	<aside pseudo="x-sidebar" bind="
+		content: component.sidebar,
+		css: {
+			'is-visible': isSidebarVisible
+		}
+	"></aside>
+	<section pseudo="x-main" bind="
+		style: {
+			'-webkit-transform': 'translate3d('+sidebarWidth+'px, 0, 0)',
+			'-moz-transform': 'translate3d('+sidebarWidth+'px, 0, 0)',
+			'-ms-transform': 'translate3d('+sidebarWidth+'px, 0, 0)',
+			'-o-transform': 'translate3d('+sidebarWidth+'px, 0, 0)',
+			'transform': 'translate3d('+sidebarWidth+'px, 0, 0)'
+		}
+	">
+		<header pseudo="x-header">
+			<svg pseudo="x-toggle" width="30" height="24" bind="
+				on: {
+					click: toggleSidebarVisibility.bind($item)
+				}
+			">
+				<circle fill="#34495e" cx="2.5" cy="2.5" r="2.5"/>
+				<circle fill="#34495e" cx="2.5" cy="12" r="2.5"/>
+				<circle fill="#34495e" cx="2.5" cy="21.5" r="2.5"/>
+				<rect x="7.2" fill="#34495e" width="19.8" height="5"/>
+				<rect x="7.2" y="9.5" fill="#34495e" width="22.8" height="5"/>
+				<rect x="7.2" y="19" fill="#34495e" width="16.8" height="5"/>
+			</svg>
+			<h1 bind="content: component.title"></h1>
+		</header>
+		<section pseudo="x-content" bind="
+			content: component.content
+		"></section>
+	</section>
+</template>
