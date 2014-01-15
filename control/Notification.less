@@ -1,0 +1,121 @@
+.jide-extra-notification {
+	.border-radius(@border-radius-base);
+	padding: @padding-medium;
+
+	.background(@background, @text) {
+		background: fade(@background, 75%);
+		color: @text;
+
+		& > div > .x-icon svg {
+			.stroke {
+				stroke: @text;
+			}
+
+			.fill {
+				fill: @text;
+			}
+		}
+
+		&.is-visible:hover {
+			background: @background;
+			color: @button-text;
+
+			& > div > .x-icon svg {
+				.stroke {
+					stroke: @button-text;
+				}
+				.fill {
+					fill: @button-text;
+				}
+			}
+		}
+	}
+
+	opacity: 0;
+	&.is-visible {
+		opacity: 1;
+	}
+
+	.transition(background 0.4s);
+
+	.jide-extra-notification > .background(@clouds, @text-color);
+
+	&.info {
+		.jide-extra-notification > .background(@wisteria, @text-color);
+	}
+
+	&.warning {
+		.jide-extra-notification > .background(@orange, @text-color);
+	}
+
+	&.error {
+		.jide-extra-notification > .background(@pumpkin, @text-color);
+	}
+
+	&.success {
+		.jide-extra-notification > .background(@emerald, @text-color);
+	}
+
+	& > div {
+		clear: both;
+	}
+
+	& > div > .x-title {
+		font-size: (@font-size-small * 2);
+	}
+
+	& > div > .x-icon {
+		display: inline-block;
+		vertical-align: top;
+		padding: @padding-medium @padding-medium 0 0;
+	}
+
+	& > div > .x-content {
+		display: inline-block;
+		vertical-align: top;
+		padding: @padding-medium 0 0 0;
+	}
+
+	& > div > .x-close {
+		float: right;
+
+		& line {
+			stroke: @text-color;
+		}
+
+		&:hover {
+			& line {
+				stroke: @button-text;
+			}
+		}
+	}
+}
+
+.jide-extra-notification-area {
+	#padding > .large();
+
+	& > div > .jide-extra-notification {
+		display: block;
+		margin-bottom: @padding-small;
+	}
+
+	&.edge-top-left , &.edge-top-right, &.edge-bottom-left, &.edge-bottom-right {
+		position: absolute;
+	}
+
+	&.edge-top-left, &.edge-top-right {
+		top: 0;
+	}
+
+	&.edge-bottom-left, &.edge-bottom-right {
+		bottom: 0;
+	}
+
+	&.edge-top-left, &.edge-bottom-left {
+		left: 0;
+	}
+
+	&.edge-top-right, &.edge-bottom-right {
+		right: 0;
+	}
+}

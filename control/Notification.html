@@ -1,0 +1,23 @@
+<template bind="
+	css: {
+		'is-visible': isVisible
+	}
+">
+	<div>
+		<div pseudo="x-close" bind="
+			css: {
+				'is-visible': component.closeable
+			}
+		">
+			<svg width="24" height="24" bind="on: { click: closeNotification.bind($item) }">
+				<line x1="2" y1="2" x2="22" y2="22" stroke-width="4"/>
+				<line x1="2" y1="22" x2="22" y2="2" stroke-width="4"/>
+			</svg>
+		</div>
+		<div pseudo="x-title" bind="text: component.title"></div>
+	</div>
+	<div>
+		<div pseudo="x-icon" bind="content: component.icon"></div>
+		<div pseudo="x-content" bind="content: component.content"></div>
+	</div>
+</template>
